@@ -2,7 +2,7 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
-public class PositionType {
+public class PositionType extends JobField {
 
     private int id;
     private static int nextId = 1;
@@ -20,7 +20,7 @@ public class PositionType {
 
     // TODO: Add a custom toString() method that returns the data stored in 'value'.
     public String toString() {
-        return value;
+        return this.getValue();
     }
 
     // TODO: Add custom equals and hashCode methods. Consider two PositionType objects "equal" when
@@ -47,7 +47,11 @@ public class PositionType {
     }
 
     public String getValue() {
-        return value;
+        if (value.equals("") || value.equals(null)) {
+            return "Data not available";
+        } else {
+            return value;
+        }
     }
 
     public void setValue(String value) {
